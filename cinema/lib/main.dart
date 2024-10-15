@@ -6,7 +6,7 @@ void main() {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key}); 
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,14 @@ class MyApp extends StatelessWidget {
             child: Text("CineWorld"),
           ),
         ),
-        body: const Cinemahall(Platinum: 40, Gold: 20, Silver: 10),
+        body: const Cinemahall(
+          Platinum: 40,
+          Gold: 20,
+          Silver: 10,
+          PlatinumPrize: 500,
+          GoldPrize: 250,
+          SilverPrize: 100,
+        ),
       ),
     );
   }
