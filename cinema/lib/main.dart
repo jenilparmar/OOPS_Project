@@ -14,9 +14,12 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.deepPurple,
+          backgroundColor: const Color.fromARGB(255, 255, 238, 0),
           title: const Center(
-            child: Text("CineWorld"),
+            child: Text(
+              "CineWorld",
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
           ),
         ),
         body: const Cinemahall(

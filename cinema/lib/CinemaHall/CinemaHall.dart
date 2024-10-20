@@ -27,7 +27,6 @@ class Cinemahall extends StatefulWidget {
 
 class _CinemahallState extends State<Cinemahall> {
   List<String> selectedSeats = [];
-  Map<String, int> seatPrices = {};
 
   List<Widget> generateSeats(
       int seatCount, Color color, String seatPrefix, int price) {
@@ -66,7 +65,9 @@ class _CinemahallState extends State<Cinemahall> {
                 decoration: BoxDecoration(
                   border: Border.all(color: Colors.black, width: 2.0),
                   borderRadius: BorderRadius.circular(8.0),
-                  color: isSelected ? Colors.green : Colors.transparent,
+                  color: isSelected
+                      ? const Color.fromARGB(255, 255, 238, 0)
+                      : Colors.transparent,
                 ),
                 padding: const EdgeInsets.all(4.0),
                 child: Icon(
@@ -110,22 +111,37 @@ class _CinemahallState extends State<Cinemahall> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Cinema Hall'),
-        actions: [
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Center(
-              child: Text('Selected: ${selectedSeats.length}/5'),
+        backgroundColor: const Color.fromARGB(255, 255, 238, 0),
+        title: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            // Displaying selected seats
+            Text('Selected: ${selectedSeats.length}/5'),
+            // Displaying seat prices
+            Row(
+              children: [
+                Text('P: ₹${widget.PlatinumPrize}',
+                    style: const TextStyle(
+                        fontSize: 18, fontWeight: FontWeight.w600)),
+                const SizedBox(width: 8),
+                Text('G: ₹${widget.GoldPrize}',
+                    style: const TextStyle(
+                        fontSize: 18, fontWeight: FontWeight.w600)),
+                const SizedBox(width: 8),
+                Text('S: ₹${widget.SilverPrize}',
+                    style: const TextStyle(
+                        fontSize: 18, fontWeight: FontWeight.w600)),
+              ],
             ),
-          ),
-        ],
+          ],
+        ),
       ),
       body: Stack(
         children: [
           Opacity(
             opacity: 0.5,
             child: Image.asset(
-              'assets/images/image.jpg',
+              'assets/images/image.png',
               width: double.infinity,
               height: double.infinity,
               fit: BoxFit.cover,
@@ -176,7 +192,7 @@ class _CinemahallState extends State<Cinemahall> {
                   physics: const NeverScrollableScrollPhysics(),
                   children: generateSeats(
                       widget.Platinum,
-                      const Color.fromARGB(255, 13, 31, 226),
+                      const Color.fromARGB(255, 0, 0, 0),
                       'P',
                       widget.PlatinumPrize),
                 ),
@@ -197,7 +213,10 @@ class _CinemahallState extends State<Cinemahall> {
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
                   children: generateSeats(
-                      widget.Gold, Colors.amber, 'G', widget.GoldPrize),
+                      widget.Gold,
+                      const Color.fromARGB(255, 0, 0, 0),
+                      'G',
+                      widget.GoldPrize),
                 ),
                 const Padding(
                   padding: EdgeInsets.all(8.0),
@@ -216,7 +235,10 @@ class _CinemahallState extends State<Cinemahall> {
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
                   children: generateSeats(
-                      widget.Silver, Colors.blue, 'S', widget.SilverPrize),
+                      widget.Silver,
+                      const Color.fromARGB(255, 0, 0, 0),
+                      'S',
+                      widget.SilverPrize),
                 ),
               ],
             ),

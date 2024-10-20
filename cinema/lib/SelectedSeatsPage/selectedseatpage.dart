@@ -1,8 +1,12 @@
+import 'package:cinema/QR_CODE/qr_code.dart';
 import 'package:flutter/material.dart';
+import 'package:qr_flutter/qr_flutter.dart';
 
 class SelectedSeatsPage extends StatelessWidget {
   final List<String> selectedSeats;
   final List<int> seatPrize;
+  final String upiId = 'jenilparmar94091@okaxis'; // Your UPI ID
+  final String userName = 'Jenil'; // Your name/business name
 
   const SelectedSeatsPage({
     super.key,
@@ -12,7 +16,6 @@ class SelectedSeatsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Calculate total cost of selected seats
     int totalCost = seatPrize.reduce((a, b) => a + b);
 
     return Scaffold(
@@ -40,25 +43,47 @@ class SelectedSeatsPage extends StatelessWidget {
                       style: const TextStyle(fontSize: 16),
                     ),
                     trailing: Text(
-                      "\$${seatPrize[index]}", // Display the seat price
-                      style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                      "₹${seatPrize[index]}",
+                      style: const TextStyle(
+                          fontSize: 16, fontWeight: FontWeight.bold),
                     ),
                   );
                 },
               ),
             ),
             const SizedBox(height: 20),
-            // Display the total cost at the bottom
             Center(
               child: Text(
-                "Total Cost: \$${totalCost}",
+                "Your total fair is ₹${totalCost}",
                 style: const TextStyle(
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
-                  color: Colors.red,
+                  color: Color.fromARGB(255, 0, 0, 0),
                 ),
               ),
             ),
+            const SizedBox(height: 20),
+            Center(
+              child: ElevatedButton(
+                onPressed: () {
+                  // Navigate to QR code page
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => QRCodePage(
+                        upiId: upiId,
+                        userName: userName,
+                        totalCost: totalCost,
+                      ),
+                    ),
+                  );
+                },
+                child: Text('Pay ₹${totalCost}'),
+              ),
+            ),
+            const SizedBox(
+              height: 20,
+            )
           ],
         ),
       ),
