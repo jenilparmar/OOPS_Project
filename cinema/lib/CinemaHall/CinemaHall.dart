@@ -113,24 +113,27 @@ class _CinemahallState extends State<Cinemahall> {
       appBar: AppBar(
         backgroundColor: const Color.fromARGB(255, 255, 238, 0),
         title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             // Displaying selected seats
-            Text('Selected: ${selectedSeats.length}/5'),
+            Text(
+              'Selected: ${selectedSeats.length}/5',
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            ),
             // Displaying seat prices
             Row(
               children: [
                 Text('P: ₹${widget.PlatinumPrize}',
                     style: const TextStyle(
-                        fontSize: 18, fontWeight: FontWeight.w600)),
+                        fontSize: 16, fontWeight: FontWeight.w600)),
                 const SizedBox(width: 8),
                 Text('G: ₹${widget.GoldPrize}',
                     style: const TextStyle(
-                        fontSize: 18, fontWeight: FontWeight.w600)),
+                        fontSize: 16, fontWeight: FontWeight.w600)),
                 const SizedBox(width: 8),
                 Text('S: ₹${widget.SilverPrize}',
                     style: const TextStyle(
-                        fontSize: 18, fontWeight: FontWeight.w600)),
+                        fontSize: 16, fontWeight: FontWeight.w600)),
               ],
             ),
           ],
@@ -167,7 +170,7 @@ class _CinemahallState extends State<Cinemahall> {
                         'SCREEN',
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 18,
+                          fontSize: 16,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
