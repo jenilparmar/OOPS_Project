@@ -3,10 +3,6 @@ import 'package:cinema/ProfilePage/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
-void main() {
-  runApp(CineLinkApp());
-}
-
 class CineLinkApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -186,7 +182,6 @@ class MovieCard extends StatelessWidget {
                   child: Image.network(
                     movie.posterUrl,
                     fit: BoxFit.cover,
-                    alignment: AlignmentDirectional.topStart,
                   ),
                 ),
               ),

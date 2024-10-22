@@ -20,11 +20,14 @@ class SelectedSeatsPage extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.redAccent,
         title: const Text('Selected Seats Information'),
       ),
       body: Padding(
+      
         padding: const EdgeInsets.all(16.0),
         child: Column(
+          
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text(

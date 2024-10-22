@@ -10,7 +10,7 @@ class CineLinkApp extends StatelessWidget {
     return MaterialApp(
       title: 'CineLink',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: Colors.amber,
       ),
       home: HomePage(),
     );

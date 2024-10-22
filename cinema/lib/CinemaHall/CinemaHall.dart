@@ -111,7 +111,7 @@ class _CinemahallState extends State<Cinemahall> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 255, 238, 0),
+        backgroundColor: Colors.redAccent,
         title: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
